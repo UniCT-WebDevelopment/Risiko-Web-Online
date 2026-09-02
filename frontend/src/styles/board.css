@@ -1,0 +1,177 @@
+.risk-board-scope {
+  position: relative;
+  width: 100%;
+  color: #f8fbff;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gameboard-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.gameboard-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: #0f172a;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.gameboard-headings {
+  margin: 0;
+}
+
+.gameboard-subtitle {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.gameboard-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.legend-pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  background: #1e293b;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gameboard-map-card {
+  border-radius: 16px;
+  background: #07111c;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.risk-map {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 80vh;
+}
+
+.risk-map__ocean { fill: #07111c; }
+.risk-map__background-image { opacity: 0.35; } 
+
+.risk-edge {
+  stroke: rgba(255, 255, 255, 0.4);
+  stroke-width: 2px;
+  pointer-events: none;
+  stroke-dasharray: 4;
+}
+
+.risk-edge--active {
+  stroke: #f59e0b; 
+  stroke-width: 4px;
+  stroke-dasharray: 0;
+}
+
+.risk-node {
+  isolation: isolate;
+}
+
+.risk-node__territory {
+  stroke: rgba(255, 255, 255, 0.9);
+  stroke-width: 3px;
+  cursor: pointer;
+  pointer-events: all;
+  transition: stroke-width 0.2s ease, stroke 0.2s ease;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.6));
+}
+
+.risk-node:hover .risk-node__territory {
+  stroke-width: 5px;
+  stroke: #ffffff;
+}
+
+.risk-node.is-selected .risk-node__territory {
+  stroke: #f59e0b;
+  stroke-width: 5px;
+}
+
+.risk-node.is-attack-source .risk-node__territory {
+  stroke: #ef4444; 
+  stroke-width: 5px;
+}
+
+.risk-node.is-attack-target .risk-node__territory {
+  stroke: #0ea5e9;
+  stroke-width: 5px;
+  stroke-dasharray: 8 4;
+}
+
+.risk-node.is-disabled .risk-node__territory,
+.risk-node.is-locked .risk-node__territory {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.risk-node__troops-bg {
+  stroke: #ffffff;
+  stroke-width: 2px;
+  pointer-events: none;
+}
+
+.risk-node__troops {
+  fill: #ffffff;
+  stroke: #000000;
+  stroke-width: 3px;
+  stroke-linejoin: round;
+  paint-order: stroke fill;
+  font-size: 1.25rem;
+  font-weight: 900;
+  pointer-events: none;
+}
+
+.risk-node__label-bg {
+  fill: rgba(0, 0, 0, 0.5); 
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 1.5px;
+  pointer-events: none;
+  rx: 4px; 
+}
+
+.risk-node__label {
+  fill: #ffffff;
+  stroke: #000000;
+  stroke-width: 2.5px;
+  stroke-linejoin: round;
+  paint-order: stroke fill;
+  font-size: 0.95rem;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .gameboard-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .risk-node__label { font-size: 0.8rem; }
+  .risk-node__troops { font-size: 1.1rem; }
+}

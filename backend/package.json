@@ -1,0 +1,21 @@
+{
+  "name": "risiko-backend",
+  "version": "1.0.0",
+  "description": "Backend Express per Risiko Web",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^4.22.2",
+    "mysql2": "^3.23.2",
+    "socket.io": "^4.8.3",
+    "uuid": "^14.0.1"
+  }
+}
