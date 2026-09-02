@@ -26,10 +26,11 @@ mysql -u root -p < backend/schema.sql
 Crea i file `.env` nelle rispettive cartelle:
 
 # Backend (`backend/.env`)
-Esempio ideale:
+
+* Per avvio a porta singola (Produzione):
 
 PORT=3001
-CLIENT_ORIGIN=http://localhost:3000,http://localhost:3001
+CLIENT_ORIGIN=
 DB_HOST=localhost
 DB_PORT=3306
 DB_USER=root
@@ -37,6 +38,16 @@ DB_PASSWORD=
 DB_NAME=risiko_db
 
 (Nota: `DB_HOST` rimane `localhost` anche quando ci si collega da altri dispositivi della rete locale, poiché MySQL e il server Node risiedono sulla stessa macchina).
+
+* Per sviluppo classico (Due porte separate):
+
+PORT=3001
+CLIENT_ORIGIN=http://localhost:3000
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=risiko_db
 
 # Frontend (`frontend/.env`)
 
