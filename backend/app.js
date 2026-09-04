@@ -493,9 +493,9 @@ io.on("connection", (socket) => {
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 // Se non è un'API, invia l'HTML di React
-app.get("*", (req, res) => {
+/*app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
-});
+});*/
 
 app.use((req, res) => { res.status(404).json({ error: "Rotta non trovata." }); });
 
